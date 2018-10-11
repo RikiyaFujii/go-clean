@@ -12,7 +12,7 @@ type UserInteractor struct {
 
 // Store ...
 func (ui *UserInteractor) Store(u domain.User) error {
-	_, err := ui.UserRepository.Store(u)
+	err := ui.UserRepository.Store(u)
 	if err != nil {
 		return err
 	}
@@ -30,7 +30,7 @@ func (ui *UserInteractor) Index() ([]domain.User, error) {
 
 // Update ...
 func (ui *UserInteractor) Update(u domain.User) error {
-	_, err := ui.UserRepository.Update(u)
+	err := ui.UserRepository.Update(u)
 	if err != nil {
 		return err
 	}
@@ -39,7 +39,7 @@ func (ui *UserInteractor) Update(u domain.User) error {
 
 // Delete ...
 func (ui *UserInteractor) Delete(id int) error {
-	_, err := ui.UserRepository.Delete(id)
+	err := ui.UserRepository.Delete(id)
 	if err != nil {
 		return err
 	}

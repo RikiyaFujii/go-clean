@@ -63,6 +63,6 @@ func (c *UserController) Delete(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(vars["id"])
 	ErrorStatus(w, err, 404)
 	err = c.Interactor.Delete(id)
-	ErrorStatus(w, err, 404)
+	ErrorStatus(w, err, 500)
 	log.Println("Deleted User!!")
 }

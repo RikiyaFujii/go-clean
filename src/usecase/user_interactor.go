@@ -18,3 +18,30 @@ func (ui *UserInteractor) Store(u domain.User) error {
 	}
 	return nil
 }
+
+// Index ...
+func (ui *UserInteractor) Index() ([]domain.User, error) {
+	users, err := ui.UserRepository.Index()
+	if err != nil {
+		return []domain.User{}, err
+	}
+	return users, nil
+}
+
+// Update ...
+func (ui *UserInteractor) Update(u domain.User) error {
+	_, err := ui.UserRepository.Update(u)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+// Delete ...
+func (ui *UserInteractor) Delete(id int) error {
+	_, err := ui.UserRepository.Delete(id)
+	if err != nil {
+		return err
+	}
+	return nil
+}

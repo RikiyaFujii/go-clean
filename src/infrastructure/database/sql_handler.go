@@ -14,12 +14,12 @@ type SQLHandler struct {
 
 // NewSQLHandler ...
 func NewSQLHandler() *SQLHandler {
-	conn, err := sqlx.Open("mysql", "root:@/clean_go?parseTime=true&charset=utf8mb4&interpolateParams=true")
+	ctx, err := sqlx.Open("mysql", "root:@/clean_go?parseTime=true&charset=utf8mb4&interpolateParams=true")
 	if err != nil {
 		panic(err)
 	}
 	sqlHandler := new(SQLHandler)
-	sqlHandler.Conn = conn
+	sqlHandler.Conn = ctx
 	return sqlHandler
 }
 
@@ -30,4 +30,12 @@ func (s *SQLHandler) Prepare(query string) (*sql.Stmt, error) {
 		return nil, err
 	}
 	return result, nil
+}
+
+// Select ...
+func (s *SQLHandler) Select(dest interface{}, query string, args ...interface{}) error {
+	if err := s.Conn.Select(dest, query, args...); err != nil {
+		return err
+	}
+	return nil
 }

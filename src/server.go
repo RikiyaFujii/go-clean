@@ -10,10 +10,5 @@ import (
 func main() {
 	r := mux.NewRouter()
 	external.Router(r)
-
-	srv := &http.Server{
-		Handler: r,
-		Addr:    "127.0.0.1:8000",
-	}
-	srv.ListenAndServe()
+	http.ListenAndServe("localhost:8080", r)
 }

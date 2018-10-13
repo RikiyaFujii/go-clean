@@ -1,4 +1,4 @@
-package adapter_test
+package userscontroller_test
 
 import (
 	"bytes"
@@ -7,13 +7,13 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/rikiya/go-clean/src/adapter"
+	"github.com/rikiya/go-clean/src/adapter/userscontroller"
 	"github.com/rikiya/go-clean/src/domain"
 	"github.com/rikiya/go-clean/src/infrastructure/database"
 )
 
 func TestCreate(t *testing.T) {
-	usersController := adapter.NewUserController(*database.NewSQLHandler())
+	usersController := userscontroller.NewUserController(*database.NewSQLHandler())
 	newUser := domain.User{
 		FirstName: "Fujii",
 		LastName:  "Rikiya",
@@ -33,7 +33,7 @@ func TestCreate(t *testing.T) {
 }
 
 func TestFindAll(t *testing.T) {
-	usersController := adapter.NewUserController(*database.NewSQLHandler())
+	usersController := userscontroller.NewUserController(*database.NewSQLHandler())
 	req := httptest.NewRequest("GET", "http://localhost:8080/users", nil)
 	res := httptest.NewRecorder()
 	usersController.FindAll(res, req)

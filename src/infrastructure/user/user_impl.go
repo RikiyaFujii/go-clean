@@ -35,7 +35,7 @@ func (ui *UserImpl) Index() (users []domain.User, err error) {
 }
 
 // Update ...
-func (ui *UserImpl) Update(u domain.User) error {
+func (ui *UserImpl) Update(id int, u domain.User) error {
 	ctx := database.NewSQLHandler()
 	res, err := ctx.Prepare(
 		`UPDATE users SET first_name = ?, last_name = ? WHERE id = ?`,
@@ -45,7 +45,7 @@ func (ui *UserImpl) Update(u domain.User) error {
 	}
 	defer res.Close()
 
-	_, err = res.Exec(u.FirstName, u.LastName, u.ID)
+	_, err = res.Exec(u.FirstName, u.LastName, id)
 	return err
 }
 

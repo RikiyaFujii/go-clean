@@ -8,6 +8,6 @@ import (
 type UserRepository interface {
 	Store(domain.User) error
 	Index() ([]domain.User, error)
-	Update(domain.User) error
+	Update(int, domain.User) error
 	Delete(id int) error
 }

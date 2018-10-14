@@ -29,8 +29,8 @@ func (ui *UserInteractor) Index() ([]domain.User, error) {
 }
 
 // Update ...
-func (ui *UserInteractor) Update(u domain.User) error {
-	err := ui.UserRepository.Update(u)
+func (ui *UserInteractor) Update(id int, u domain.User) error {
+	err := ui.UserRepository.Update(id, u)
 	if err != nil {
 		return err
 	}

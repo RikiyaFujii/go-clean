@@ -50,10 +50,14 @@ func (c *UserController) FindAll(w http.ResponseWriter, r *http.Request) {
 
 // Update ...
 func (c *UserController) Update(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id, err := strconv.Atoi(vars["id"])
+	errorlog.ErrorStatus(w, err, 404)
+
 	u := domain.User{}
-	err := json.NewDecoder(r.Body).Decode(&u)
+	err = json.NewDecoder(r.Body).Decode(&u)
 	errorlog.ErrorStatus(w, err, 500)
-	err = c.Interactor.Update(u)
+	err = c.Interactor.Update(id, u)
 	errorlog.ErrorStatus(w, err, 500)
 	log.Println("Updated User!!")
 }

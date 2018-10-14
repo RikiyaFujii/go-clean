@@ -11,6 +11,6 @@ func Router(r *mux.Router) {
 	usersController := userscontroller.NewUserController(*database.NewSQLHandler())
 	r.HandleFunc("/users", usersController.Create).Methods("POST")
 	r.HandleFunc("/users", usersController.FindAll).Methods("GET")
-	r.HandleFunc("/users/{id}", usersController.Update).Methods("PUT")
-	r.HandleFunc("/users/{id}", usersController.Delete).Methods("DELETE")
+	r.HandleFunc("/users/{id:[0-9]+}", usersController.Update).Methods("PUT")
+	r.HandleFunc("/users/{id:[0-9]+}", usersController.Delete).Methods("DELETE")
 }

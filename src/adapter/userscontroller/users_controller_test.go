@@ -41,3 +41,34 @@ func TestFindAll(t *testing.T) {
 		t.Errorf("invalid code: %d", res.Code)
 	}
 }
+
+func TestUpdate(t *testing.T) {
+	usersController := userscontroller.NewUserController(*database.NewSQLHandler())
+	user := domain.User{
+		FirstName: "Fujii",
+		LastName:  "rikiya",
+	}
+	b, err := json.Marshal(user)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	req := httptest.NewRequest("PUT", "http://localhost:8080/users/2", bytes.NewBuffer(b))
+	res := httptest.NewRecorder()
+	usersController.Update(res, req)
+
+	if res.Code != http.StatusOK {
+		t.Errorf("invalid code: %d", res.Code)
+	}
+}
+
+func TestDelete(t *testing.T) {
+	usersController := userscontroller.NewUserController(*database.NewSQLHandler())
+	req := httptest.NewRequest("DELETE", "http://localhost:8080/users/3", nil)
+	res := httptest.NewRecorder()
+	usersController.Delete(res, req)
+
+	if res.Code != http.StatusOK {
+		t.Errorf("invalid code: %d", res.Code)
+	}
+}

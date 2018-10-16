@@ -51,8 +51,9 @@ func (c *UserController) FindAll(w http.ResponseWriter, r *http.Request) {
 // Update ...
 func (c *UserController) Update(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
+	log.Println(vars)
 	id, err := strconv.Atoi(vars["id"])
-	errorlog.ErrorStatus(w, err, http.StatusBadRequest)
+	// errorlog.ErrorStatus(w, err, http.StatusBadRequest)
 
 	u := domain.User{}
 	err = json.NewDecoder(r.Body).Decode(&u)
@@ -66,7 +67,7 @@ func (c *UserController) Update(w http.ResponseWriter, r *http.Request) {
 func (c *UserController) Delete(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, err := strconv.Atoi(vars["id"])
-	errorlog.ErrorStatus(w, err, http.StatusBadRequest)
+	// errorlog.ErrorStatus(w, err, http.StatusBadRequest)
 	err = c.Interactor.Delete(id)
 	errorlog.ErrorStatus(w, err, http.StatusInternalServerError)
 	log.Println("Deleted User!!")

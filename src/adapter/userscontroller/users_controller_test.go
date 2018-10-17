@@ -8,13 +8,13 @@ import (
 	"testing"
 
 	"github.com/rikiya/go-clean/src/adapter/userscontroller"
-	"github.com/rikiya/go-clean/src/domain"
+	"github.com/rikiya/go-clean/src/entity"
 	"github.com/rikiya/go-clean/src/infrastructure/database"
 )
 
 func TestCreate(t *testing.T) {
 	usersController := userscontroller.NewUserController(*database.NewSQLHandler())
-	newUser := domain.User{
+	newUser := entity.User{
 		FirstName: "Fujii",
 		LastName:  "Rikiya",
 	}
@@ -44,7 +44,7 @@ func TestFindAll(t *testing.T) {
 
 func TestUpdate(t *testing.T) {
 	usersController := userscontroller.NewUserController(*database.NewSQLHandler())
-	user := domain.User{
+	user := entity.User{
 		FirstName: "Fujii",
 		LastName:  "rikiya",
 	}

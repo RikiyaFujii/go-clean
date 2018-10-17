@@ -8,7 +8,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/rikiya/go-clean/src/adapter/errorlog"
-	"github.com/rikiya/go-clean/src/domain"
+	"github.com/rikiya/go-clean/src/entity"
 	"github.com/rikiya/go-clean/src/infrastructure/database"
 	"github.com/rikiya/go-clean/src/infrastructure/user"
 	"github.com/rikiya/go-clean/src/usecase"
@@ -32,7 +32,7 @@ func NewUserController(sqlHandler database.SQLHandler) *UserController {
 
 // Create ...
 func (c *UserController) Create(w http.ResponseWriter, r *http.Request) {
-	u := domain.User{}
+	u := entity.User{}
 	err := json.NewDecoder(r.Body).Decode(&u)
 	errorlog.ErrorStatus(w, err, http.StatusBadRequest)
 	err = c.Interactor.Store(u)
@@ -55,7 +55,7 @@ func (c *UserController) Update(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(vars["id"])
 	// errorlog.ErrorStatus(w, err, http.StatusBadRequest)
 
-	u := domain.User{}
+	u := entity.User{}
 	err = json.NewDecoder(r.Body).Decode(&u)
 	errorlog.ErrorStatus(w, err, http.StatusBadRequest)
 	err = c.Interactor.Update(id, u)

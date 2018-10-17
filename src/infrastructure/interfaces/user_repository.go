@@ -1,13 +1,13 @@
 package interfaces
 
 import (
-	"github.com/rikiya/go-clean/src/domain"
+	"github.com/rikiya/go-clean/src/entity"
 )
 
 // UserRepository ...
 type UserRepository interface {
-	Store(domain.User) error
-	Index() ([]domain.User, error)
-	Update(int, domain.User) error
+	Store(entity.User) error
+	Index() ([]entity.User, error)
+	Update(int, entity.User) error
 	Delete(id int) error
 }

@@ -1,7 +1,7 @@
 package user
 
 import (
-	"github.com/rikiya/go-clean/src/domain"
+	"github.com/rikiya/go-clean/src/entity"
 	"github.com/rikiya/go-clean/src/infrastructure/database"
 )
 
@@ -11,7 +11,7 @@ type UserImpl struct {
 }
 
 // Store ...
-func (ui *UserImpl) Store(u domain.User) error {
+func (ui *UserImpl) Store(u entity.User) error {
 	ctx := database.NewSQLHandler()
 	res, err := ctx.Prepare(
 		`INSERT INTO users (first_name, last_name) VALUES(?, ?)`,
@@ -26,7 +26,7 @@ func (ui *UserImpl) Store(u domain.User) error {
 }
 
 // Index ...
-func (ui *UserImpl) Index() (users []domain.User, err error) {
+func (ui *UserImpl) Index() (users []entity.User, err error) {
 	ctx := database.NewSQLHandler()
 	if err = ctx.Select(&users, `SELECT * FROM users`); err != nil {
 		return nil, err
@@ -35,7 +35,7 @@ func (ui *UserImpl) Index() (users []domain.User, err error) {
 }
 
 // Update ...
-func (ui *UserImpl) Update(id int, u domain.User) error {
+func (ui *UserImpl) Update(id int, u entity.User) error {
 	ctx := database.NewSQLHandler()
 	res, err := ctx.Prepare(
 		`UPDATE users SET first_name = ?, last_name = ? WHERE id = ?`,

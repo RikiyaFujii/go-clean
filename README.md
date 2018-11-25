@@ -1,8 +1,10 @@
 # go-clean-architecture
 
-## example
+Built a clean architecture using Golang.
 
-### adapter
+## Example
+
+### Adapter
 It describes the processing of controller for calling by routing.
 
 ```go
@@ -67,7 +69,7 @@ func ErrorStatus(w http.ResponseWriter, err error, status int) {
 }
 ```
 
-### db
+### DB
 It is a layer for migration and has DDL statements and migration files.
 
 ```sql
@@ -91,7 +93,7 @@ development:
     open: root:@/clean_go?parseTime=true&charset=utf8mb4&interpolateParams=true
 ```
 
-### entity
+### Entity
 A data structure describing business rules.
 
 ```go
@@ -105,7 +107,7 @@ type User struct {
 }
 ```
 
-### external
+### External
 Call controller on layer describing API routing.
 
 ```go
@@ -124,7 +126,7 @@ func Router(r *mux.Router) {
 }
 ```
 
-### infrastructure
+### Infrastructure
 Definition of interface handled by Handler, Model layer (impl), Model for accessing DB.
 ```go
 package interfaces
@@ -217,7 +219,7 @@ func (ui *UserImpl) Store(u entity.User) error {
 }
 ```
 
-### usecase
+### Usecase
 Includes application-specific business rules. Encapsulate and implement all system use cases.
 
 ```go

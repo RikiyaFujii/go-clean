@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/rikiya/go-clean/src/external"
+	"github.com/RikiyaFujii/go-clean/src/external"
 )
 
 func main() {

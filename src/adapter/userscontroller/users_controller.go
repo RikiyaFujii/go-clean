@@ -7,11 +7,11 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/rikiya/go-clean/src/adapter/errorlog"
-	"github.com/rikiya/go-clean/src/entity"
-	"github.com/rikiya/go-clean/src/infrastructure/database"
-	"github.com/rikiya/go-clean/src/infrastructure/user"
-	"github.com/rikiya/go-clean/src/usecase"
+	"github.com/RikiyaFujii/go-clean/src/adapter/errorlog"
+	"github.com/RikiyaFujii/go-clean/src/entity"
+	"github.com/RikiyaFujii/go-clean/src/infrastructure/database"
+	"github.com/RikiyaFujii/go-clean/src/infrastructure/user"
+	"github.com/RikiyaFujii/go-clean/src/usecase"
 )
 
 // UserController ...

@@ -1,7 +1,7 @@
 package interfaces
 
 import (
-	"github.com/rikiya/go-clean/src/entity"
+	"github.com/RikiyaFujii/go-clean/src/entity"
 )
 
 // UserRepository ...

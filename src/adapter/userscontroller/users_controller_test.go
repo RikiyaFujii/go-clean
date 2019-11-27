@@ -7,9 +7,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/rikiya/go-clean/src/adapter/userscontroller"
-	"github.com/rikiya/go-clean/src/entity"
-	"github.com/rikiya/go-clean/src/infrastructure/database"
+	"github.com/RikiyaFujii/go-clean/src/adapter/userscontroller"
+	"github.com/RikiyaFujii/go-clean/src/entity"
+	"github.com/RikiyaFujii/go-clean/src/infrastructure/database"
 )
 
 func TestCreate(t *testing.T) {

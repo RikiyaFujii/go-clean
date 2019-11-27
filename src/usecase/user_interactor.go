@@ -1,8 +1,8 @@
 package usecase
 
 import (
-	"github.com/rikiya/go-clean/src/entity"
-	"github.com/rikiya/go-clean/src/infrastructure/interfaces"
+	"github.com/RikiyaFujii/go-clean/src/entity"
+	"github.com/RikiyaFujii/go-clean/src/infrastructure/interfaces"
 )
 
 // UserInteractor ...

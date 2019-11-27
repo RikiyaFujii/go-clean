@@ -1,8 +1,8 @@
 package user
 
 import (
-	"github.com/rikiya/go-clean/src/entity"
-	"github.com/rikiya/go-clean/src/infrastructure/database"
+	"github.com/RikiyaFujii/go-clean/src/entity"
+	"github.com/RikiyaFujii/go-clean/src/infrastructure/database"
 )
 
 // UserImpl ...

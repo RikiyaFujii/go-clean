@@ -2,8 +2,8 @@ package external
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/rikiya/go-clean/src/adapter/userscontroller"
-	"github.com/rikiya/go-clean/src/infrastructure/database"
+	"github.com/RikiyaFujii/go-clean/src/adapter/userscontroller"
+	"github.com/RikiyaFujii/go-clean/src/infrastructure/database"
 )
 
 // Router ...

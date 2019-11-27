@@ -17,11 +17,11 @@ import (
     "strconv"
 
     "github.com/gorilla/mux"
-    "github.com/rikiya/go-clean/src/adapter/errorlog"
-    "github.com/rikiya/go-clean/src/entity"
-    "github.com/rikiya/go-clean/src/infrastructure/database"
-    "github.com/rikiya/go-clean/src/infrastructure/user"
-    "github.com/rikiya/go-clean/src/usecase"
+    "github.com/RikiyaFujii/go-clean/src/adapter/errorlog"
+    "github.com/RikiyaFujii/go-clean/src/entity"
+    "github.com/RikiyaFujii/go-clean/src/infrastructure/database"
+    "github.com/RikiyaFujii/go-clean/src/infrastructure/user"
+    "github.com/RikiyaFujii/go-clean/src/usecase"
 )
 
 // UserController ...
@@ -115,8 +115,8 @@ package external
 
 import (
     "github.com/gorilla/mux"
-    "github.com/rikiya/go-clean/src/adapter/userscontroller"
-    "github.com/rikiya/go-clean/src/infrastructure/database"
+    "github.com/RikiyaFujii/go-clean/src/adapter/userscontroller"
+    "github.com/RikiyaFujii/go-clean/src/infrastructure/database"
 )
 
 // Router ...
@@ -145,7 +145,7 @@ type SQLHandler interface {
 package interfaces
 
 import (
-    "github.com/rikiya/go-clean/src/entity"
+    "github.com/RikiyaFujii/go-clean/src/entity"
 )
 
 // UserRepository ...
@@ -194,8 +194,8 @@ func (s *SQLHandler) Prepare(query string) (*sql.Stmt, error) {
 package user
 
 import (
-    "github.com/rikiya/go-clean/src/entity"
-    "github.com/rikiya/go-clean/src/infrastructure/database"
+    "github.com/RikiyaFujii/go-clean/src/entity"
+    "github.com/RikiyaFujii/go-clean/src/infrastructure/database"
 )
 
 // UserImpl ...
@@ -226,8 +226,8 @@ Includes application-specific business rules. Encapsulate and implement all syst
 package usecase
 
 import (
-    "github.com/rikiya/go-clean/src/entity"
-    "github.com/rikiya/go-clean/src/infrastructure/interfaces"
+    "github.com/RikiyaFujii/go-clean/src/entity"
+    "github.com/RikiyaFujii/go-clean/src/infrastructure/interfaces"
 )
 
 // UserInteractor ...
